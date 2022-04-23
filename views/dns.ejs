@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+<body>
+  <!-- include header partial -->
+  <%-  include('_header.ejs') -%>
+  <!-- form container to find dns TXT records from url  -->
+  <div class="container text-center my-5 w-50 ">
+    <h2 class="mb-4">Dns Checker</h2>
+    <form action="/dns-result" method="POST">
+      <input class="form-control" type="text" name="url" placeholder="Enter URL">
+      <input class="btn btn-outline-dark mt-3" type="submit" value="submit">
+      <a class="btn btn-outline-warning mt-3" href="/meta"> Meta Tag Checker </a>
+    </form>
+  </div>
+  <!-- if dns of that Url present the Show it on UI -->
+  <%if(dns){ %>
+    <div class="container w-75">
+      <h3>All Dns TXT records</h3>
+      <hr>
+      <ul>
+        <%for(d in dns){%>
+          <li>
+            <%= dns[d] %> <br>
+          </li>
+          <%}%>
+      <ul>
+    </div>
+  <%}%>
+  <!-- if dns of that Url are not present the Show error on UI -->
+  <%if(dnsErr){ %>
+    <div class="container h-100 w-50">
+      <h4>
+        <%= dnsErr %>
+      </h4>
+    </div>
+  <%}%>
+
+  <!-- bootstrap js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

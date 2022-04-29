@@ -1,7 +1,7 @@
 # Meta-Tag-and-Dns-Validator
  A Meta Tag and Dns validator project which help to fetch meta data and dns TXT records. (followed MVC structure).
  
- ### Hosted Link : https://github.com/0Apexx0/Meta-Tag-and-Dns-Validator.git
+ ### Hosted Link : https://metatag-validator.herokuapp.com/
  
  
 ## Library used :
